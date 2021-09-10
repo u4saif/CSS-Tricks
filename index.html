@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D button</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .btn {
+      width: 300px;
+      height: 150px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 500ms ease-in-out;
+      transform: translateZ(-1.6em);
+    }
+    .btn:hover {
+      transform: rotateX(-90deg) translateY(1.6em);
+    }
+    .side {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 3em;
+      font-weight: bold;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    }
+    .default-side {
+      background-color: aqua;
+      transform: translateZ(1.6em);
+    }
+
+    .hover-side {
+      color: azure;
+      background-color: red;
+      transform: rotateX(90deg) translateZ(1.6em);
+    }
+  </style>
+  <body>
+    <div class="btn">
+      <div class="side default-side">Hover Me</div>
+
+      <div class="side hover-side">Slide</div>
+    </div>
+  </body>
+</html>

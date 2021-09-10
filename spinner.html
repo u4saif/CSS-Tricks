@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinner</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 10px;
+      padding: 0;
+    }
+    .spinner {
+      width: 10em;
+      height: 10em;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .spinner-text {
+      position: absolute;
+      animation: fade 1s ease-in-out infinite;
+    }
+    .spinner-sector {
+      position: absolute;
+      border-radius: 50%;
+      border: 0.5rem solid transparent;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: overlay;
+    }
+    .redSinner {
+      border-top: 0.5rem dotted rgba(255, 0, 0, 1);
+      animation: rotate 3s ease-out infinite;
+    }
+    .greenSpinner {
+      border-top: 0.5rem solid rgba(0, 128, 0, 0.623);
+      border-bottom: 0.5rem solid rgba(2, 192, 240, 0.623);
+      animation: rotate 1.5s ease-in-out infinite;
+    }
+    .orangeSpinner {
+      border-top: 0.5rem dotted rgba(255, 196, 0, 1);
+      animation: rotate 1s ease-in infinite;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes fade {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      25%,
+      75% {
+        transform: scale(1.2);
+        opacity: 0.75;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+    }
+  </style>
+  <body>
+    <div class="spinner">
+      <div class="spinner-text">Loading</div>
+      <div class="spinner-sector redSinner"></div>
+      <div class="spinner-sector greenSpinner"></div>
+      <div class="spinner-sector orangeSpinner"></div>
+    </div>
+  </body>
+</html>

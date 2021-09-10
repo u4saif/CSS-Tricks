@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom CheckBox</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 4px;
+     }
+ 
+    .checkboxItem {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .checkboxItem label{
+      cursor: pointer;
+      display: flex;
+      font-size: 20px;
+    }
+
+    .checkboxItem input[type='checkbox']{
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+    }
+
+    .checkboxItem label::before{
+      content: '';
+      width: 1em;
+      height: 1em;
+      border-radius: .15em;
+      margin-right: .5em;
+      border: .05em solid black;
+    }
+    .checkboxItem label:hover::before,
+    .checkboxItem input[type='checkbox']:hover + label::before{
+      background-color: rgb(20, 179, 31);
+    }
+    
+    .checkboxItem input[type='checkbox']:focus +  label::before{
+      box-shadow: 0 0 10px black;
+    }
+    .checkboxItem input[type='checkbox']:checked + label::before{
+      content: '\002714';
+      background-color: rgb(16, 90, 65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:white;
+    }
+  </style>
+  <body>
+      <div class="checkboxItem">
+        <input type="checkbox" id="cb1" /> <label for="cb1">Apples</label>
+      </div>
+
+      <div class="checkboxItem">
+        <input type="checkbox" id="cb2" /> <label for="cb2">Banana</label>
+      </div>
+
+      <div class="checkboxItem">
+        <input type="checkbox" id="cb3" /> <label for="cb3">Mango</label>
+      </div>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordian</title>
+  </head>
+  <style>
+    /* * {
+      box-sizing: border-box;
+    } */
+    .accordian {
+      max-width: 300px;
+      font-family: "Quicksand", sans-serif;
+      /* padding: 5px;
+      margin: 10px; */
+      box-shadow: 0 0 10px #666363d0;
+      background-color: rgba(15, 179, 124, 0.553);
+      border-radius: 5px;
+      position: relative;
+    }
+    .accordian_label,
+    .accordian_section {
+      padding: 14px 20px;
+    }
+    .accordian_input,
+    .accordian_label {
+      cursor: pointer;
+      display: block;
+    }
+
+    .accordian .accordian_input {
+      opacity: 0;
+      position: absolute;
+    }
+    .accordian .accordian_label:hover {
+      background-color: rgba(15, 179, 124, 0.753);
+    }
+    .accordian .accordian_label::after {
+      content: "▼";
+      float: right;
+      margin-right: 5px;
+      transition: transform 300ms ease;
+    }
+    .accordian .accordian_section {
+      background-color: #fff;
+      display: none;
+    }
+
+    .accordian_input:checked ~ .accordian_section {
+      display: block;
+    }
+
+    .accordian_input:checked ~ .accordian_label {
+      background-color: rgba(15, 179, 124, 0.753);
+      border-radius: 4px;
+    }
+    .accordian_input:checked + .accordian_label::after {
+      transform: rotate(180deg);
+    }
+  </style>
+  <body>
+    <div class="accordian">
+      <input type="checkbox" name="acGroup" id="ac1" class="accordian_input" />
+      <label for="ac1" class="accordian_label">Expand List 1</label>
+      <div class="accordian_section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem cumque
+        sunt magni quod aliquam rerum corporis reiciendis! Ipsam minus nulla
+        culpa, dolorum similique, placeat?
+      </div>
+    </div>
+
+    <div class="accordian">
+      <input type="checkbox" name="acGroup" id="ac2" class="accordian_input" />
+      <label for="ac2" class="accordian_label">Expand List 1</label>
+      <div class="accordian_section">
+        dolor sit amet consectetur adipisicing elit. Quidem cumque sunt magni
+        quod aliquam rerum corporis reiciendis! Ipsam minus nulla culpa, dolorum
+        similique, ullam accusantium in consequatur soluta, saepe placeat?
+      </div>
+    </div>
+
+    <div class="accordian">
+      <input type="checkbox" name="acGroup" id="ac3" class="accordian_input" />
+      <label for="ac3" class="accordian_label">Expand List 1</label>
+      <div class="accordian_section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem cumque
+        sunt magni quod aliquam rerum corporis reiciendis! Ipsam minus nulla
+        culpa, dolorum similique, ullam accusantium in consequatur soluta, saepe
+        placeat?
+      </div>
+    </div>
+  </body>
+</html>

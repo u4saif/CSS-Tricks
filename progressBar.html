@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProgressBar</title>
+  </head>
+  <style>
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+    }
+    .progressBar {
+      position: relative;
+      background-color: #111;
+      width: 500px;
+      height: 3em;
+      border-radius: 1.5em;
+      color: white;
+    }
+    .progressBar::before {
+      content: attr(data-lable);
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 0.5em;
+      top: 0.5em;
+      bottom: 0.5em;
+      width: 10%;
+      min-width: 2rem;
+      max-width: calc(100% - 1em);
+      background-color: darkslateblue;
+      border-radius: 1em;
+      padding: 1em;
+      animation: progress 3s steps(200) infinite;
+    }
+    @keyframes progress {
+      100% {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="progressBar" data-lable="Loading..."></div>
+    </div>
+  </body>
+</html>
