@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeLine</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    li {
+      list-style: none;
+    }
+
+    .step::after {
+      content: "1";
+      display: flex;
+      top: 40px;
+      border: 2px solid rgba(35, 43, 37, 0.521);
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(239, 241, 240, 0.932);
+    }
+
+    .step::before {
+      content: "";
+      display: flex;
+      top: 33px;
+      border: solid rgba(24, 26, 24, 0.473);
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      position: relative;
+      z-index: -1;
+    }
+
+    .active::after,
+    .active::before {
+      background-color: rgba(0, 255, 64, 0.959);
+      border: solid rgba(0, 255, 64, 0.815);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <ul style="display: flex">
+        <li class="step active">Step 1</li>
+        <li class="step">Step 2</li>
+        <li class="step">Step 3</li>
+      </ul>
+    </div>
+  </body>
+</html>
