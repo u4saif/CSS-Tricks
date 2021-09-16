@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page with Bulb</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 200vh;
+        font-family: sans-serif;
+      }
+      .nav {
+        background-color: #472f88ec;
+      }
+      .list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .list li {
+        padding: 1.5em;
+        /* margin-left: 1em; */
+        color: #c6c6c6;
+        font-size: large;
+
+        list-style: none;
+        cursor: pointer;
+      }
+      .toogleButton {
+        /* float: left; */
+        position: absolute;
+        top: 1em;
+        left: 5em;
+      }
+      input[type="checkbox"] {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        appearance: none;
+        background: #c6c6c6;
+        outline: none;
+        transition: 0.5s;
+        border-radius: 25px;
+        box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+      }
+      input:checked[type="checkbox"] {
+        background-color: #03a9f4;
+      }
+
+      input[type="checkbox"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        background-color: #fff;
+        border-radius: 25px;
+        transform: scale(1.1);
+        transition: 0.5s;
+      }
+      input:checked[type="checkbox"]::before {
+        transform: translateX(100%) scale(1.2);
+      }
+      input:checked[type="checkbox"] > body {
+        background-color: red;
+      }
+      .mainContaint {
+        width: 500px;
+        padding: 1em;
+        margin: 1em;
+        overflow: hidden;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.795);
+        box-shadow: 0px 0px 4px #000;
+        border-radius: 5px;
+      }
+      .bulb {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-top: 5em;
+        margin-left: 2em;
+        left: calc(50% - 2px);
+        box-shadow: 0 0 50px #fff, 0 0 100px #fff, 0 0 150px #fff,
+          0 0 200px #fff, 0 0 250px #fff, 0 0 300px #fff, 0 0 350px #fff,
+          0 0 400px #fff, 0 0 450px #fff, 0 0 500px #fff, 0 0 550px #fff;
+      }
+      .bulb::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: 22.5px;
+        width: 35px;
+        height: 80px;
+        background-color: #fff;
+        border-top: 30px solid #000;
+        border-radius: 10px;
+        z-index: 10;
+      }
+      .bulb span:nth-child(1) {
+        position: absolute;
+        display: block;
+        background: transparent;
+        width: 30px;
+        height: 30px;
+        box-shadow: 20px 20px 0 10px #fff;
+        border-bottom-right-radius: 40px;
+        top: -16px;
+        left: -4px;
+        transform: rotate(341deg);
+      }
+      .bulb span:nth-child(2) {
+        position: absolute;
+        display: block;
+        background: transparent;
+        width: 30px;
+        height: 30px;
+        box-shadow: -20px 20px 0 10px #fff;
+        border-bottom-left-radius: 40px;
+        top: -16px;
+        right: -4px;
+        transform: rotate(16deg);
+      }
+      .wire {
+        position: absolute;
+        left: calc(50% - 2px);
+        bottom: 70%;
+        width: 4px;
+        height: 65vh;
+        background: #000;
+      }
+
+      .on {
+        background: radial-gradient(#555, #111);
+      }
+
+      .bulb::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        filter: blur(40px);
+      }
+    </style>
+  </head>
+  <body class="on">
+    <div class="nav">
+      <div class="toogleButton">
+        <input type="checkbox" />
+      </div>
+      <div class="navManu">
+        <ul class="list">
+          <li>Home</li>
+          <li>Products</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mainContaint">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolorum
+        sapiente architecto sint consequuntur, id amet, est maiores laboriosam
+        odit officiis debitis nulla, nesciunt doloremque explicabo deleniti
+        consectetur atque. Deserunt! Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Vel quas incidunt dolorum, voluptas libero ad eligendi
+        consequuntur cupiditate, aut fuga veritatis tempore perferendis. Placeat
+        sit iure velit numquam tempora distinctio? Lorem ipsum dolor, sit amet
+        consectetur adipisicing elit. Voluptas placeat odio omnis libero ipsam
+        facere ducimus, ipsa nulla velit tempore sit quasi illo iste, autem
+        fugiat a adipisci nostrum debitis! Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Quisquam quidem optio dicta velit
+        accusamus voluptatem, deleniti sunt sed illo error quos necessitatibus,
+        quibusdam saepe ex doloremque dolorem, dolores voluptatum qui?
+      </p>
+    </div>
+
+    <div class="bulb">
+      <span></span>
+      <span></span>
+      <div class="wire"></div>
+    </div>
+  </body>
+</html>

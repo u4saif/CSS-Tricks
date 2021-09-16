@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positions</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .parent {
+        width: 100%;
+        margin: 1em;
+        padding: 1em;
+        background-color: rgb(39, 40, 41);
+        /* height: 200vh; */
+        color: #fff;
+        font-size: medium;
+        position: relative;
+      }
+      .childOne {
+        position: fixed;
+        top: 1%;
+        padding: 1em;
+        background-color: red;
+        border: 2px solid rgb(8, 3, 3);
+      }
+      .childTwo {
+        padding: 1em;
+        background-color: blue;
+        border: 2px solid rgb(1, 1, 26);
+      }
+      .childThree {
+        padding: 1em;
+        background-color: rgba(226, 37, 141, 0.959);
+        border: 2px solid rgb(1, 1, 26);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="childOne">Child One</div>
+      <div class="childTwo">Child Two</div>
+      <div class="childThree">Child Three</div>
+    </div>
+  </body>
+</html>

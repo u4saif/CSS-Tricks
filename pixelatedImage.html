@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixellated Image</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .box {
+        position: relative;
+        width: 360px;
+        height: 410px;
+        margin: 10px;
+        background-color: #000;
+      }
+
+      .box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .box.pixed img {
+        image-rendering: pixelated;
+        filter: contrast(1);
+      }
+
+      .box.pixed::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: repeating-linear-gradient(
+            0deg,
+            #0006 0%,
+            #0006 5%,
+            transparent 4%,
+            transparent 96%,
+            #0006 96%,
+            #0006 100%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            #0006 0%,
+            #0006 4%,
+            transparent 4%,
+            transparent 96%,
+            #0006 96%,
+            #0006 100%
+          );
+        background-size: 5px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="./assets/mypicNormal.jpg" />
+    </div>
+    <div class="box pixed">
+      <img src="./assets/mypic.jpg" />
+    </div>
+  </body>
+</html>
