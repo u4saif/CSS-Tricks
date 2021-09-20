@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .maincontainer {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        grid-gap: 1em;
+      }
+      .nav {
+        grid-column: 1/11;
+        grid-row: 1/1;
+        height: 8vh;
+        background-color: greenyellow;
+      }
+      .sideNav {
+        grid-column: 1/2;
+        grid-row: 2/10;
+        background-color: lightblue;
+      }
+      .dashBoard {
+        grid-column: 2/11;
+        grid-row: 2/10;
+        background-color: rgb(240, 107, 240);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow-y: scroll;
+        /* grid-gap: 1em; */
+      }
+      .footer {
+        grid-column: 1/11;
+        grid-row: 10/11;
+        background-color: rgba(0, 0, 0, 0.514);
+      }
+      .child {
+        width: 250px;
+        height: 200px;
+        background-color: red;
+        border: 2px solid black;
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maincontainer">
+      <div class="nav"></div>
+      <div class="sideNav"></div>
+      <div class="dashBoard">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>
