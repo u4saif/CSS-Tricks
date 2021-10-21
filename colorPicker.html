@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      label {
+        margin-left: 2px;
+      }
+      .colorBox,
+      .colorBoxFont {
+        display: flex;
+        align-items: center;
+        padding: auto;
+        margin: 1em;
+      }
+      .colorBox > h6 {
+        padding-right: 2%;
+      }
+      .colorBoxFont > h6 {
+        padding-right: 2%;
+      }
+      #hexValue,
+      #rgbaValue,
+      #rgbaValueFont,
+      #hexValueFont {
+        border: 2px solid black;
+        padding: 1%;
+        margin-left: 2em;
+        min-width: 15%;
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      #colorValue,
+      #colorValueFont {
+        width: 10rem;
+      }
+
+      .main {
+        width: auto;
+        margin: 5px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-weight: bolder;
+      }
+      .cardContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        margin: 1em;
+        padding: 1em;
+        width: 200px;
+        height: 200px;
+        box-shadow: 1px 1px 2px 1px;
+        color: white;
+        text-align: center;
+        border-radius: 5%;
+      }
+      .btnBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+        background: yellow;
+        border-radius: 20px;
+        box-shadow: -1px 4px 6px 0px;
+      }
+      .btnBox > button {
+        background-color: yellow;
+      }
+    </style>
+    <script>
+      function convertHexToRGBA(colorHex) {
+        let hex = colorHex.replace("#", "");
+        if (hex.length === 3) {
+          hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+        }
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+
+        return `rgb(${r},${g},${b})`;
+      }
+      function showColor() {
+        let colorHex = document.getElementById("colorValue").value;
+        const rgbColor = convertHexToRGBA(colorHex);
+        document.getElementById("rgbaValue").innerHTML = rgbColor;
+        document.getElementById("hexValue").innerHTML = colorHex;
+        document.getElementById("main").style.backgroundColor = colorHex;
+      }
+
+      function showColorFont() {
+        let colorHex = document.getElementById("colorValueFont").value;
+        const rgbColor = convertHexToRGBA(colorHex);
+        document.getElementById("rgbaValueFont").innerHTML = rgbColor;
+        document.getElementById("hexValueFont").innerHTML = colorHex;
+        document.getElementById("home").style.color = colorHex;
+        document.getElementById("news").style.color = colorHex;
+        document.getElementById("contact").style.color = colorHex;
+        document.getElementById("about").style.color = colorHex;
+      }
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      function colorGenerator() {
+        for (var i = 0; i < 15; i++) {
+          var card = document.getElementsByClassName("cardContainer")[0];
+          let generatedColor = getRandomColor();
+          let generatedColorHex = convertHexToRGBA(generatedColor);
+          card.getElementsByClassName("card")[i].style.backgroundColor =
+            generatedColor;
+          card.getElementsByClassName("card")[i].innerHTML =
+            generatedColorHex + "<br/>" + generatedColor;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <head>
+      <div class="colorBox">
+        <h6>Select you BG Colour.</h6>
+        <input
+          type="color"
+          name="colorValue"
+          id="colorValue"
+          onInput="showColor()"
+        />
+        <span id="hexValue"></span>
+        <span id="rgbaValue"></span>
+      </div>
+
+      <div class="colorBoxFont">
+        <h6>Select you Font Color.</h6>
+        <input
+          type="color"
+          name="colorValueFont"
+          id="colorValueFont"
+          onInput="showColorFont()"
+        />
+        <span id="hexValueFont"></span>
+        <span id="rgbaValueFont"></span>
+      </div>
+
+      <div class="main" id="main">
+        <ul>
+          <li><a id="home" href="#home">Home</a></li>
+          <li><a id="news">News</a></li>
+          <li><a id="contact">Contact</a></li>
+          <li><a id="about">About</a></li>
+        </ul>
+      </div>
+      <br />
+      <hr />
+    </head>
+    <div class="btnBox" onclick="colorGenerator()">Gnerator Colors</div>
+
+    <div class="cardContainer">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </body>
+</html>
