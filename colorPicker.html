@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Color Picker</title>
     <style>
       * {
@@ -15,12 +16,20 @@
       label {
         margin-left: 2px;
       }
+
+      nav{
+        box-shadow: inset 1px 1px 14px 1px #6d6d6d;
+        border-radius: 10px;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-bottom: 10px;
+      }
       .colorBox,
       .colorBoxFont {
         display: flex;
         align-items: center;
-        padding: auto;
         margin: 1em;
+        padding-bottom: 1rem;
       }
       .colorBox > h6 {
         padding-right: 2%;
@@ -39,6 +48,8 @@
         width: auto;
         height: auto;
         border-radius: 5px;
+        cursor: pointer;
+        user-select: all;
       }
 
       #colorValue,
@@ -49,6 +60,7 @@
       .main {
         width: auto;
         margin: 5px;
+        border-radius: 8px;
       }
 
       ul {
@@ -87,6 +99,8 @@
         font-size: larger;
         text-align: center;
         border-radius: 5%;
+        cursor: pointer;
+        user-select: all;
       }
       .btnBox {
         display: flex;
@@ -142,7 +156,7 @@
         return color;
       }
       function colorGenerator() {
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 25; i++) {
           var card = document.getElementsByClassName("cardContainer")[0];
           let generatedColor = getRandomColor();
           let generatedColorHex = convertHexToRGBA(generatedColor);
@@ -152,10 +166,34 @@
             generatedColorHex + "<br/>" + generatedColor;
         }
       }
+
+      function copyText(){
+        document.execCommand("Copy");
+        Toastify({
+  text: "Color is copied!",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+}).showToast();
+
+      }
     </script>
   </head>
   <body>
-    <head>
+    <nav>
+      
+      <div class="main" id="main">
+        <ul>
+          <li><a id="home" href="#home">Home</a></li>
+          <li><a id="news">News</a></li>
+          <li><a id="contact">Contact</a></li>
+          <li><a id="about">About</a></li>
+        </ul>
+      </div>
+
       <div class="colorBox">
         <h6>Select you BG Colour.</h6>
         <input
@@ -164,8 +202,8 @@
           id="colorValue"
           onInput="showColor()"
         />
-        <span id="hexValue"></span>
-        <span id="rgbaValue"></span>
+        <span id="hexValue" onclick="copyText()"></span>
+        <span id="rgbaValue"  onclick="copyText()"></span>
       </div>
 
       <div class="colorBoxFont">
@@ -176,39 +214,40 @@
           id="colorValueFont"
           onInput="showColorFont()"
         />
-        <span id="hexValueFont"></span>
-        <span id="rgbaValueFont"></span>
+        <span id="hexValueFont"  onclick="copyText()"></span>
+        <span id="rgbaValueFont"  onclick="copyText()"></span>
       </div>
-
-      <div class="main" id="main">
-        <ul>
-          <li><a id="home" href="#home">Home</a></li>
-          <li><a id="news">News</a></li>
-          <li><a id="contact">Contact</a></li>
-          <li><a id="about">About</a></li>
-        </ul>
-      </div>
-      <br />
-      <hr />
-    </head>
+    </nav>
     <div class="btnBox" onclick="colorGenerator()">Gnerator Colors</div>
 
     <div class="cardContainer">
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      <div class="card" onclick="copyText()"></div>
+      
     </div>
   </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </html>
